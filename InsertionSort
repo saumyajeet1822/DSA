@@ -1,0 +1,33 @@
+import java.util.Arrays;
+public class InsertionSort {
+    public static int[] sort(int[] numbers){
+        //going through each number in int[] numbers
+        for (int i =1; i< numbers.length; i++){
+            int j = i -1;
+            int t = numbers[i];
+            while (j>=0 && numbers[j] >t){
+                numbers[j + 1] = numbers[j--];
+            }
+            numbers[j+1] = t;
+        }
+        return numbers;
+    }
+
+    public static void main(String[] args) {
+        int[] randomNumbers = {10,5,2,3,4,98,67};
+        int[] sortedNumbers;
+
+        sortedNumbers= sort(randomNumbers); //Insertion sort
+
+        //print out the sorted Numbers
+        System.out.println(Arrays.toString(sortedNumbers));
+    }
+
+}
+
+
+/*As far as analysis of Insertion sort is concerned, you learnt that it also has an efficiency of O(N2).
+However, it follows O(N) in the best case. So, if the array is almost sorted,
+i.e. it is nearer to the best case than the worst case, the insertion sort will have a time complexity somewhere between O(N2) and O(N).
+It will be nearer to O(N) if the array is almost sorted, and nearer to O(N2) if the array is arranged in the opposite order of our preference.
+For example, consider an array where all elements are in descending order, and you want to sort it in ascending order.*/
