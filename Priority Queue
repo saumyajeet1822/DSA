@@ -1,0 +1,35 @@
+import java.util.Comparator;
+import java.util.PriorityQueue;
+public class  Classroom {
+//PQ objects
+    static class Students implements Comparable<Students>{
+        String name;
+        int rank;
+
+        public Students(String name, int rank){
+            this.name = name;
+            this.rank = rank;
+        }
+
+        @Override
+        public int compareTo(Students s2){
+            return this.rank - s2.rank;
+        }
+    }
+    
+
+    public static void main(String[] args) {
+        PriorityQueue<Students> pq = new PriorityQueue<>(Comparator.reverseOrder());
+
+        pq.add(new Students("Saumyajeet Das", 1));// o(log n)
+        pq.add(new Students("Anu", 5));
+        pq.add(new Students("Gaurav", 10));
+        pq.add(new Students("Vivek" , 4));
+
+        while(!pq.isEmpty()){
+            System.out.println(pq.peek().name +" AIR "+ pq.peek().rank);//O(1)
+            pq.remove();//O(log n)
+        }
+    }
+    
+}
